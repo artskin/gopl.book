@@ -1,0 +1,131 @@
+.sidebar{
+    background-color:ghostwhite;
+}
+.sidebar-nav {
+    padding: 1rem;
+    line-height: 2.2; /* 行高匹配目录排版 */
+    counter-reset: h1-counter; /* 初始化一级标题计数器 */
+}
+.sidebar-nav > ul{
+    padding-left: 0;
+    margin-left: 0;
+}
+/* 一级目录样式（如 1. 入门） */
+.sidebar-nav > ul > li {
+    counter-increment: h1-counter; /* 一级计数器自增 */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    & > a{
+        font-weight: bold;
+    }
+    & a{
+        display: inline-block;
+        line-height: 1;
+    }
+}
+.sidebar ul li.active>a{
+ border-right: none;
+}
+/* 一级序号生成：1. 2. */
+.sidebar-nav > ul > li::before {
+    content: counter(h1-counter) ". ";
+    font-weight: bold;
+    display: inline;
+}
+
+/* 二级目录容器，初始化二级计数器 */
+.sidebar-nav > ul > li > ul {
+    counter-reset: h2-counter;
+    padding-left: .4rem; /* 二级缩进 */
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* 二级目录项（如 1.1. Hello, World） */
+.sidebar-nav > ul > li > ul > li {
+    counter-increment: h2-counter; /* 二级计数器自增 */
+    display: flex;
+    align-items: center;
+    gap:4px;
+    margin: 0;
+    &:hover{
+        color: var(--links);
+    }
+}
+
+/* 二级序号生成：1.1. 1.2. */
+.sidebar-nav > ul > li > ul > li::before {
+    content: counter(h1-counter) "." counter(h2-counter) ". ";
+    display: inline-block;
+}
+
+
+
+/**翻页*/
+/* .docsify-pagination-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 5em 0 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+.pagination-item {
+  margin-top: 2.5em;
+}
+.pagination-item a,
+.pagination-item a:hover {
+  text-decoration: none;
+}
+.pagination-item a {
+  color: currentColor;
+}
+.pagination-item a:hover .pagination-item-title {
+  text-decoration: underline;
+}
+.pagination-item:not(:last-child) a .pagination-item-label,
+.pagination-item:not(:last-child) a .pagination-item-title,
+.pagination-item:not(:last-child) a .pagination-item-subtitle {
+  opacity: 0.3;
+  transition: all 200ms;
+}
+.pagination-item:last-child .pagination-item-label,
+.pagination-item:not(:last-child) a:hover .pagination-item-label {
+  opacity: 0.6;
+}
+.pagination-item:not(:last-child) a:hover .pagination-item-title {
+  opacity: 1;
+}
+.pagination-item-label {
+  font-size: 0.8em;
+}
+.pagination-item-label > * {
+  line-height: 1;
+  vertical-align: middle;
+}
+.pagination-item-label svg {
+  height: 0.8em;
+  width: auto;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+}
+.pagination-item--next {
+  margin-left: auto;
+  text-align: right;
+}
+.pagination-item--next svg {
+  margin-left: 0.5em;
+}
+.pagination-item--previous svg {
+  margin-right: 0.5em;
+}
+.pagination-item-title {
+  font-size: 1.2em;
+}
+.pagination-item-subtitle {
+  text-transform: uppercase;
+  opacity: 0.3;
+} */
